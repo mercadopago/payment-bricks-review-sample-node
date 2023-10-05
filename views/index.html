@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Checkout Bricks Payment Integration</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    </head>
+    <body>
+        <input id="mercado-pago-public-key" value="{{mercadoPagoPublicKey}}" type="hidden" />
+        <main>
+            <!-- Shopping Cart -->
+            <section class="shopping-cart dark">
+                <div class="container container__cart">
+                    <div class="block-heading">
+                        <h2>Shopping Cart</h2>
+                        <p>This is an example of Mercado Pago Payment Brick Integration</p>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-8">
+                                <div class="items">
+                                    <div class="product">
+                                        <div class="info">
+                                            <div class="product-details">
+                                                <div class="row justify-content-md-center">
+                                                    <div class="col-md-3">
+                                                        <img class="img-fluid mx-auto d-block image" src="img/product.png">
+                                                    </div>
+                                                    <div class="col-md-4 product-detail">
+                                                        <h5>Product</h5>
+                                                        <div class="product-info">
+                                                            <p>
+                                                                <b>Description: </b><span id="product-name">White t-shirt</span>
+                                                                <br>
+                                                                <b>Price:</b> $ <span id="unit-price">10000</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 product-detail">
+                                                        <label for="quantity"><h5>Quantity</h5></label>
+                                                        <input type="number" id="quantity" value="1" min="1" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-4">
+                                <div class="summary">
+                                    <h3>Cart</h3>
+                                    <div class="summary-item"><span class="text">Subtotal</span><span class="price" id="cart-total"></span></div>
+                                    <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Edit Shipping -->
+            <section>
+                <div class="container__shipping">
+                    <div class="block-heading">
+                        <h2>Edit Shipping Information</h2>
+                        <p>This is an example of Mercado Pago Payment Brick Integration</p>
+                    </div>
+                    <div class="form-container">
+                        <form id="shipping-form" class="mt-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="streetName">Steet name:</label>
+                                    <input class="form-control" type="text" id="shippingStreetName" name="streetName">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="streetNumber">Number:</label>
+                                    <input class="form-control" type="number" id="shippingStreetNumber" name="streetNumber">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="neighborhood">Neighborhood:</label>
+                                <input class="form-control" type="text" id="shippingNeighborhood" name="neighborhood">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="city">City:</label>
+                                    <input class="form-control" type="text" id="shippingCity" name="city">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="federalUnit">Federal unit:</label>
+                                    <input class="form-control" type="text" id="shippingFederalUnit" name="federalUnit">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">Zip code:</label>
+                                <input class="form-control" type="text" id="shippingZipCode" name="zipCode">
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- Edit Billing -->
+            <section>
+                <div class="container__billing">
+                    <div class="block-heading">
+                        <h2>Edit Billing Information</h2>
+                        <p>This is an example of Mercado Pago Payment Brick Integration</p>
+                    </div>
+                    <div class="form-container">
+                        <form id="billing-form" class="mt-4">
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="firstName">First name:</label>
+                                    <input class="form-control" type="text" id="firstName" name="firstName">
+                                </div>
+                                <div class="form-group col">
+                                    <label for="lastName">Last name:</label>
+                                    <input class="form-control" type="text" id="lastName" name="lastName">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="idType">ID type:</label>
+                                    <input class="form-control" type="text" id="idType" name="identidTypeification">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="idNumber">ID number:</label>
+                                    <input class="form-control" type="text" id="idNumber" name="idNumber">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="streetName">Steet name:</label>
+                                    <input class="form-control" type="text" id="billingStreetName" name="streetName">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="streetNumber">Number:</label>
+                                    <input class="form-control" type="number" id="billingStreetNumber" name="streetNumber">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="neighborhood">Neighborhood:</label>
+                                <input class="form-control" type="text" id="billingNeighborhood" name="neighborhood">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="city">City:</label>
+                                    <input class="form-control" type="text" id="billingCity" name="city">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="federalUnit">Federal unit:</label>
+                                    <input class="form-control" type="text" id="billingFederalUnit" name="federalUnit">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">Zip code:</label>
+                                <input class="form-control" type="text" id="billingZipCode" name="zipCode">
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- Payment -->
+            <section class="payment-form dark">
+                <div class="container__payment">
+                    <div class="block-heading">
+                        <h2>Payment</h2>
+                        <p>This is an example of Mercado Pago Payment Brick Integration</p>
+                    </div>
+                    <div class="form-payment">
+                        <div class="products">
+                            <h2 class="title">Summary</h2>
+                            <div class="item">
+                                <span class="price" id="summary-price"></span>
+                                <p class="item-name">Book x <span id="summary-quantity"></span></p>
+                            </div>
+                            <div class="total">Total<span class="price" id="summary-total"></span></div>
+                            <input type="hidden" id="amount" />
+                            <input type="hidden" id="description" />
+                        </div>
+                        <!-- TODO: Add payment form here -->
+                        <div id="loader-container">
+                            <span class="loader"></span>
+                        </div>
+                        <div id="mercadopago-bricks-contaner__Payment"></div>
+                        <a id="go-back">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10 10" class="chevron-left">
+                                <path fill="#009EE3" fill-rule="nonzero"id="chevron_left" d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"></path>
+                            </svg>
+                            Go back to Shopping Cart
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Result -->
+            <section class="shopping-cart dark">
+                <div class="container container__result">
+                    <div class="block-heading">
+                        <h2>Payment Result</h2>
+                        <p>This is an example of Mercado Pago Payment Brick Integration</p>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <div class="items product info product-details">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-md-12 product-detail">
+                                            <div class="product-info">
+                                                <br>
+                                                <p style="text-align: center;">Proceed with the payment in Mercado Pago new tab</p>
+                                                <p style="text-align: center; border: 1px solid #fff; margin-top: 24px">
+                                                    <b>Developer Note:</b>
+                                                    If you wanna know how to redirect the buyer<br>
+                                                    back to your website after he pays on Mercado Pago website,<br>
+                                                    check this other sample repo: <a href="https://github.com/mercadopago/payment-bricks-sample-node">mercadopago/payment-bricks-sample-node</a>
+                                                </p>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer_logo"><img id="horizontal_logo" src="img/horizontal_logo.png"></div>
+            <div class="footer_text">
+                <p>Developers Site:</p>
+                <p><a href="https://www.mercadopago.com/developers">https://www.mercadopago.com/developers</a></p>
+            </div>
+        </footer>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script type="text/javascript" src="js/index.js" defer></script>
+</html>
