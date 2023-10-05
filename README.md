@@ -45,7 +45,7 @@ MERCADO_PAGO_SAMPLE_PUBLIC_KEY=YOUR_PUBLIC_KEY MERCADO_PAGO_SAMPLE_ACCESS_TOKEN=
 
 ### :test_tube: Testing
 
-On our [testing instructions](https://www.mercadopago.com/developers/en/docs/checkout-bricks/integration/integration-test) you'll find **[credit cards](https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/test-cards)** that can be used along with this sample and a guide on how to create **test users**.
+On our [testing instructions](https://www.mercadopago.com/developers/en/docs/checkout-bricks/integration-test/test-payment-flow) you'll find **[credit cards](https://www.mercadopago.com/developers/en/docs/checkout-bricks/additional-content/your-integrations/test/cards)** that can be used along with this sample and a guide on how to create **test users**.
 
 ## :handshake: Contributing
 
@@ -53,5 +53,5 @@ You can contribute to this project by reporting problems and bugs. Before openin
 
 ## :bookmark: License
 
-MIT License. Copyright (c) 2022 - Mercado Pago <br/>
+MIT License. Copyright (c) 2023 - Mercado Pago <br/>
 For more information, see the [LICENSE](LICENSE) file.
